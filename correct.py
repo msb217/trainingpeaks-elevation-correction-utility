@@ -5,11 +5,11 @@ from datetime import datetime
 import requests
 
 parser = argparse.ArgumentParser(description='A tool to bulk apply elevation correction to TrainingPeaks activities')
-parser.add_argument('--start-date', help='Beginning of date range for bulk elevation correction', required=True)
-parser.add_argument('--end-date', help='End of date range for bulk elevation correction. Defaults to current date',
+parser.add_argument('--start-date', help='Beginning of date range for bulk elevation correction (YYYY-mm-dd)', required=True)
+parser.add_argument('--end-date', help='End of date range for bulk elevation correction (YYYY-mm-dd). Defaults to current date',
                     default=datetime.today().strftime('%Y-%m-%d'))
 parser.add_argument('--tags',
-                    help='A list of tags for identifying activities to be corrected, ex: --tags=running,cycling',
+                    help='A list of tags for identifying activities to be corrected, ex: --tags=running cycling',
                     nargs='+', default=[])
 
 args = vars(parser.parse_args())
@@ -45,7 +45,7 @@ get_activities = requests.get(
 
 workouts_json = get_activities.json()
 
-runs = []
+activities = []
 
 for workout in workouts_json:
     if len(tags) > 0:
@@ -53,13 +53,13 @@ for workout in workouts_json:
         if user_tags is not None:
             user_tags = set(map(str.lower, user_tags.split(',')))
             if tags & user_tags:
-                runs.append(workout['workoutId'])
+                activities.append(workout['workoutId'])
     else:
-        runs.append(workout['workoutId'])
+        activities.append(workout['workoutId'])
 
-for run in runs:
+for activity in activities:
     correct_elevation = requests.post(
-        'https://tpapi.trainingpeaks.com/groundcontrol/v2/commands/workouts/{run}/applyelevationstofile'.format(
-            run=run), headers=headers, data={})
+        'https://tpapi.trainingpeaks.com/groundcontrol/v2/commands/workouts/{activity}/applyelevationstofile'.format(
+            activity=activity), headers=headers, data={})
 
-    print("Activity ID: {run}, Status Code: {status_code}".format(run=run, status_code=correct_elevation.status_code))
+    print("Activity ID: {activity}, Status Code: {status_code}".format(activity=activity, status_code=correct_elevation.status_code))
