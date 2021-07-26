@@ -41,4 +41,4 @@ optional arguments:
 Use this tool at your own discretion and risk. I am in no way responsible for any issues this software causes to (but not limited to) your computer or your TrainingPeaks account
 
 ## To TrainingPeaks
-If you feel this software violates your ToS, reach out to me and I will happily remove it from github.
+If you feel this software violates your ToS, please reach out to me and I will happily remove it from github.
