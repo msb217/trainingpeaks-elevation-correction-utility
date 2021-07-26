@@ -1,9 +1,9 @@
 # TrainingPeaks Elevation Correction Utility
 This utility will select an athlete's activities in TrainingPeaks within a specified date range and apply elevation correction to them.
 
-TrainingPeaks does not support auto-applying elevation adjustment to activities, nor does it support bulk applying elevation correction to many activities at a time.
+TrainingPeaks does not support auto-applying elevation correction to activities, nor does it support bulk applying elevation correction to many activities at a time.
 
-This script is useful if you have hundreds of activities you'd like to apply elevation correction to and do not want to manually adjust all of them via the web app.
+This script is useful if you have hundreds of activities you'd like to apply elevation correction to and do not want to manually correct all of them via the web app.
 
 ## Usage
 1. Read the disclaimer below
@@ -27,9 +27,9 @@ optional arguments:
   -h, --help            show this help message and exit
 
   --start-date START_DATE
-                        Beginning of date range for bulk elevation adjustment (YYYY-mm-dd)
+                        Beginning of date range for bulk elevation correction (YYYY-mm-dd)
 
-  --end-date END_DATE   End of date range for bulk elevation adjustment (YYYY-mm-dd)
+  --end-date END_DATE   End of date range for bulk elevation correction (YYYY-mm-dd)
                         Defaults to current date
 
   --tags TAGS [TAGS ...]
