@@ -1,4 +1,4 @@
-# TrainingPeaks Bulk Elevation Adjustment Utility
+# TrainingPeaks Elevation Correction Utility
 This utility will select an athlete's activities in TrainingPeaks within a specified date range and apply elevation correction to them.
 
 TrainingPeaks does not support auto-applying elevation adjustment to activities, nor does it support bulk applying elevation correction to many activities at a time.
