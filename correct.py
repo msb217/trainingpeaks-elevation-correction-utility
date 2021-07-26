@@ -5,8 +5,8 @@ from datetime import datetime
 import requests
 
 parser = argparse.ArgumentParser(description='A tool to bulk apply elevation correction to TrainingPeaks activities')
-parser.add_argument('--start-date', help='Beginning of date range for bulk elevation adjustment', required=True)
-parser.add_argument('--end-date', help='End of date range for bulk elevation adjustment. Defaults to current date',
+parser.add_argument('--start-date', help='Beginning of date range for bulk elevation correction', required=True)
+parser.add_argument('--end-date', help='End of date range for bulk elevation correction. Defaults to current date',
                     default=datetime.today().strftime('%Y-%m-%d'))
 parser.add_argument('--tags',
                     help='A list of tags for identifying activities to be corrected, ex: --tags=running,cycling',
@@ -58,8 +58,8 @@ for workout in workouts_json:
         runs.append(workout['workoutId'])
 
 for run in runs:
-    adjust_elevation = requests.post(
+    correct_elevation = requests.post(
         'https://tpapi.trainingpeaks.com/groundcontrol/v2/commands/workouts/{run}/applyelevationstofile'.format(
             run=run), headers=headers, data={})
 
-    print("Activity ID: {run}, Status Code: {status_code}".format(run=run, status_code=adjust_elevation.status_code))
+    print("Activity ID: {run}, Status Code: {status_code}".format(run=run, status_code=correct_elevation.status_code))

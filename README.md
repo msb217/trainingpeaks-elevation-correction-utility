@@ -15,10 +15,10 @@ This script is useful if you have hundreds of activities you'd like to apply ele
 7. Set the numeric `athlete_id` to an environment variable `TRAININGPEAKS_ATHLETE_ID`
 
 ```
-➜  python adjust.py --start-date 2021-01-01 --tags running cycling
+➜  python correct.py --start-date 2021-01-01 --tags running cycling
 
-➜  python adjust.py -h
-usage: adjust.py [-h] --start-date START_DATE [--end-date END_DATE]
+➜  python correct.py -h
+usage: correct.py [-h] --start-date START_DATE [--end-date END_DATE]
                  [--tags TAGS [TAGS ...]]
 
 A tool to bulk apply elevation correction to TrainingPeaks activities
