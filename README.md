@@ -3,7 +3,7 @@ This utility will select an athlete's activities in TrainingPeaks within a speci
 
 TrainingPeaks does not support auto-applying elevation adjustment to activities, nor does it support bulk applying elevation correction to many activities at a time.
 
-This script is useful if you have hundreds of activities you'd like to apply elevation correction to and do not want to manually select all of them via the web app.
+This script is useful if you have hundreds of activities you'd like to apply elevation correction to and do not want to manually adjust all of them via the web app.
 
 ## Usage
 1. Read the disclaimer below
