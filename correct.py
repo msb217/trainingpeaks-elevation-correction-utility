@@ -5,8 +5,10 @@ from datetime import datetime
 import requests
 
 parser = argparse.ArgumentParser(description='A tool to bulk apply elevation correction to TrainingPeaks activities')
-parser.add_argument('--start-date', help='Beginning of date range for bulk elevation correction (YYYY-mm-dd)', required=True)
-parser.add_argument('--end-date', help='End of date range for bulk elevation correction (YYYY-mm-dd). Defaults to current date',
+parser.add_argument('--start-date', help='Beginning of date range for bulk elevation correction (YYYY-mm-dd)',
+                    required=True)
+parser.add_argument('--end-date',
+                    help='End of date range for bulk elevation correction (YYYY-mm-dd). Defaults to current date',
                     default=datetime.today().strftime('%Y-%m-%d'))
 parser.add_argument('--tags',
                     help='A list of tags for identifying activities to be corrected, ex: --tags=running cycling',
@@ -62,4 +64,5 @@ for activity in activities:
         'https://tpapi.trainingpeaks.com/groundcontrol/v2/commands/workouts/{activity}/applyelevationstofile'.format(
             activity=activity), headers=headers, data={})
 
-    print("Activity ID: {activity}, Status Code: {status_code}".format(activity=activity, status_code=correct_elevation.status_code))
+    print("Activity ID: {activity}, Status Code: {status_code}".format(activity=activity,
+                                                                       status_code=correct_elevation.status_code))
