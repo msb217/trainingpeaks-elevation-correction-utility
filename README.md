@@ -6,13 +6,12 @@ TrainingPeaks does not support auto-applying elevation correction to activities,
 This script is useful if you have hundreds of activities you'd like to apply elevation correction to and do not want to manually correct all of them via the web app.
 
 ## Usage
-1. Read the disclaimer below
-2. Sign into TrainingPeaks via your web browser  
-3. Navigate to the 'Network' tab of your browser's dev tools  
-4. Obtain the two request headers `Cookie` and `User-Agent` from a request to `tpapi.trainingpeaks.com`. You may need to check multiple requests for `Cookie`. You will need to update `Cookie` whenever your TrainingPeaks session is closed.
-5. Set `Cookie` and `User-Agent` as environment variables with the names `TRAININGPEAKS_SESSION_COOKIE` and `TRAININGPEAKS_USER_AGENT`
-6. Find a request to `tpapi.trainingpeaks.com` with the path prefix `/fitness/v1/athletes/{athlete_id}`.
-7. Set the numeric `athlete_id` to an environment variable `TRAININGPEAKS_ATHLETE_ID`
+1. Sign into TrainingPeaks via your web browser  
+2. Navigate to the 'Network' tab of your browser's dev tools  
+3. Obtain the two request headers `Cookie` and `User-Agent` from a request to `tpapi.trainingpeaks.com`. You may need to check multiple requests for `Cookie`. You will need to update `Cookie` whenever your TrainingPeaks session is closed.
+4. Set `Cookie` and `User-Agent` as environment variables with the names `TRAININGPEAKS_SESSION_COOKIE` and `TRAININGPEAKS_USER_AGENT`
+5. Find a request to `tpapi.trainingpeaks.com` with the path prefix `/fitness/v1/athletes/{athlete_id}`.
+6. Set the numeric `athlete_id` to an environment variable `TRAININGPEAKS_ATHLETE_ID`
 
 ```
 ➜  python correct.py --start-date 2021-01-01 --tags running cycling
@@ -36,6 +35,3 @@ optional arguments:
                         A list of tags for identifying activities to be
                         corrected, ex: '--tags running cycling'
 ```
-
-## Disclaimer
-Use this tool at your own discretion and risk. I am in no way responsible for any issues this software causes to (but not limited to) your computer or your TrainingPeaks account
